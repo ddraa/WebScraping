@@ -11,7 +11,7 @@ def print_match(m):
         print("NOT MATCHED")
 
 
-p = re.compile("ca.e") # . -> one chr
+p = re.compile("ca.e") # . -> only one chr
 # ^ -> (^de) start point .. desk, destination
 # $ -> (se$) end point.. case, base
 
