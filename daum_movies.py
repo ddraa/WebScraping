@@ -1,13 +1,13 @@
 import requests
 from bs4 import BeautifulSoup
 
-
-
-for year in range(2015, 2020):
+for year in range(2015, 2016):
 
     res = requests.get(f'https://search.daum.net/search?w=tot&q={year}%EB%85%84%EC%98%81%ED%99%94%EC%88%9C%EC%9C%84&DA=MOR&rtmaxcoll=MOR')
     res.raise_for_status()
+    #print(res.text)
     soup = BeautifulSoup(res.text, "lxml")
+    #print(soup)
 
     images = soup.find_all("img", attrs={"class":"thumb_img"})
 
@@ -18,7 +18,7 @@ for year in range(2015, 2020):
         if image_url.startswith("//"):
             image_url = "https:" + image_url
 
-        print(image_url)
+        #print(image_url)
 
         image_res = requests.get(image_url)
         image_res.raise_for_status
